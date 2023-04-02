@@ -89,7 +89,7 @@ function App() {
 
   return (
     <Layout>
-      <div className="max-w-3xl m-auto">
+      <div className="max-w-3xl m-semi">
         <form method="POST" className="flex flex-col gap-4">
           <h3 className="text-3xl font-bold mb-4">Create Something...</h3>
 
