@@ -75,10 +75,22 @@ function App() {
     setForm(initialForm);
   };
 
+  const handleEdit = (data) => {
+    setForm(data);
+
+    const updatedList = list.filter(
+      (item) =>
+        item.name !== data.name &&
+        item.age !== data.age &&
+        item.gender !== data.gender
+    );
+    setList(updatedList);
+  };
+
   return (
     <Layout>
       <div className="max-w-3xl m-auto">
-        <form className="flex flex-col gap-4">
+        <form method="POST" className="flex flex-col gap-4">
           <h3 className="text-3xl font-bold mb-4">Create Something...</h3>
 
           <Input
@@ -184,6 +196,13 @@ function App() {
                   </span>{' '}
                   {item.marital_status}
                 </div>
+
+                <button
+                  onClick={() => handleEdit(item)}
+                  className="bg-blue-700 text-white rounded-md px-4 py-2"
+                >
+                  Edit
+                </button>
               </li>
             ))}
           </ul>
